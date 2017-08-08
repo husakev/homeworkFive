@@ -27,16 +27,27 @@ package moduleFive;
 наоборот)
 Вывести в консоль данные об объекте */
 public class CarDoor {
+    CarWindow carWindow = new CarWindow();
     private boolean door;
-    private boolean window;
+
+    public class CarWindow{
+        private boolean window;
+
+        public CarWindow() {
+                window = true; //открыто
+        }
+
+        public CarWindow(boolean window) {
+            this.window = window;
+        }
+    }
 
     public CarDoor() {
-        door = true;   //открыты
-        window = true; //открыто
+            door = true;   //открыты
     }
-    public CarDoor(boolean door, boolean window) {
+
+    public CarDoor(boolean door) {
         this.door = door;
-        this.window = window;
     }
 
     public void openDoor() {
@@ -68,35 +79,35 @@ public class CarDoor {
     }
 
     public void openWindow() {
-        if (window) {
+        if (carWindow.window) {
             System.out.println("окно открыто");
         } else {
-            window = true;
+            carWindow.window = true;
             System.out.println("окно открылось");
         }
     }
 
     public void closeWindow() {
-        if (!window) {
+        if (!carWindow.window) {
             System.out.println("окно закрыто");
         } else {
-            window = false;
+            carWindow.window = false;
             System.out.println("окно закрылось");
         }
     }
 
     public void openСloseWindow() {
-        if (window) {
-            window = false;
+        if (carWindow.window) {
+            carWindow.window = false;
             System.out.println("окно закрылось");
         } else {
-            window = true;
+            carWindow.window = true;
             System.out.println("окно открылось");
         }
     }
     public void console() {
         System.out.println("Состояние двери: дверь - " + (door ? "открыта" : "закрыта"));
-        System.out.println("Состояние окна: окно - " + (window? "открыта" : "закрыта"));
+        System.out.println("Состояние окна: окно - " + (carWindow.window? "открыта" : "закрыта"));
 
     }
     public static void main(String[] args) {
