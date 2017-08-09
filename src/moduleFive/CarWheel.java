@@ -31,7 +31,7 @@ public class CarWheel {
         System.out.println("состояние шины - " + (tire = 1));
     }
     public double eraseTire(){
-        tire %= Math.random()*1;
+        tire = tire / 100 * (100 - (1 + Math.random()*100));
         return tire;
     }
     public void tire(){
