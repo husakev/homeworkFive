@@ -17,8 +17,8 @@ package moduleFive;
 Вывести в консоль данные об объекте */
 public class CarWheel {
     private double tire;
-    public CarWheel() {
 
+    public CarWheel() {
         tire = 1;
     }
 
@@ -26,21 +26,39 @@ public class CarWheel {
         this.tire = tire;
     }
 
-    public void changeTire(){
-
-        System.out.println("состояние шины - " + (tire = 1));
-    }
-    public double eraseTire(){
-        tire = tire / 100 * (100 - (1 + Math.random()*100));
+    public double getTire() {
         return tire;
     }
+
+    public void changeTire(){
+        System.out.println("состояние шины - " + (tire = 1));
+    }
+
+    public void eraseTire() {        // тебе перед стиранием шины нужно проверить ее
+        if (tire > 0) {              // нынешнее состояние
+            double erase = Math.random() * 1;
+            tire -= erase;
+            if (tire >= 0) {
+                System.out.println("состояние шины " + tire);
+            }
+            else { // если перетерта то умножаю чтоб узнать на сколько перетерта
+                int eraseT = (int) (-tire * 100);
+                System.out.println("шина перестерта на " + eraseT + "%");
+            }
+        }
+        else {
+            System.out.println("шина перестерта на " + -tire * 100 + "%");
+        }
+    }
+
     public void tire(){
         System.out.println("Состояние шины " + tire);
     }
+
     public static void main(String[] args) {
         CarWheel carWheel = new CarWheel();
         carWheel.changeTire();
-        System.out.println("Состояние шины после затирания" + carWheel.eraseTire());
+        carWheel.eraseTire();
         carWheel.tire();
     }
 }
