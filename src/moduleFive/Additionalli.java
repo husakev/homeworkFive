@@ -7,10 +7,9 @@ import java.util.Scanner;
 будет спрашивать какое действие выполнить и с какими параметрами. Кол-во различных
 действий = кол-ву функций в ДЗ. */
 public class Additionalli {
-    
+
     public static void main(String[] args) {
         CarDoor carDoor = new CarDoor();
-        CarDoor carWindow = new CarDoor();
         CarWheel carWheel = new CarWheel();
         Car car = new Car();
         Scanner s = new Scanner(System.in);

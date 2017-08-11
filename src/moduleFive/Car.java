@@ -128,7 +128,6 @@ public class Car {
     }
 
     public void currentMaximumSpeed(){
-        Car car = new Car();
         CarWheel carWheel = new CarWheel();
         if (this.numberPassengers > 0 && carWheel.getTire() > 0) {
             double speed = topSpeed * (wheels.get(0).getTire());
